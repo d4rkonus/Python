@@ -36,15 +36,16 @@ weapons = [axe, hammer, sword, spear, globes]
 warriors = [lancelot, surtr, bercox, navinni, nexus]
 
 
+
+def warriors_weapons():
+    for warrior in warriors:
+        time.sleep(1)
+        print(f"\n[+] The warrior {warrior.name} has the {warrior.weapon.model} weapon with {warrior.weapon.power} power and {warrior.weapon.damage} damage.")
+        time.sleep(1)
+        
 while True:
     try:
-        def warriors_weapons():
-            for warrior in warriors:
-                time.sleep(1)
-                print(f"\n[+] The warrior {warrior.name} has the {warrior.weapon.model} weapon with {warrior.weapon.power} power and {warrior.weapon.damage} damage.")
-                time.sleep(1)
-        
+        warriors_weapons()
     except KeyboardInterrupt:
         print("\n\n[!] Moving to safe zone ...")
         break
-warriors_weapons()
