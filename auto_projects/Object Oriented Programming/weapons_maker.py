@@ -1,5 +1,8 @@
 #!/usr/bin/python3
 
+import time
+
+
 class Weapon:
     def __init__(self, model, power, damage):
         self.model = model
@@ -15,26 +18,26 @@ class Warrior:
 
  
 # --- Weapon Instances ---
-axe = Weapon("Axe", "Ice", 50)
-hammer = Weapon("Hammer", "Lightning", 80)
-sword = Weapon("Sword", "Fire", 70)
-spear = Weapon("Spear", "Air", 40)
-globes = Weapon("Globes", "Rock", 45)
+axe = Weapon("axe", "ice", 50)
+hammer = Weapon("hammer", "lightning", 80)
+sword = Weapon("sword", "fire", 70)
+spear = Weapon("spear", "air", 40)
+globes = Weapon("globes", "rock", 45)
 
 
 # --- Warriors Instances ---
-lancelot = Warrior("Lancelot", 70, spear)
-surtr = Warrior("Surtr", 90, sword)
-bercox = Warrior("Bercox", 60, axe)
-navinni = Warrior("Navinni", 50, globes)
-nexus = Warrior("Nexus", 80, hammer)
-
+lancelot = Warrior("lancelot", 70, spear)
+surtr = Warrior("surtr", 90, sword)
+bercox = Warrior("bercox", 60, axe)
+navinni = Warrior("navinni", 50, globes)
+nexus = Warrior("nexus", 80, hammer)
 
 weapons = [axe, hammer, sword, spear, globes]
 warriors = [lancelot, surtr, bercox, navinni, nexus]
 
 def warriors_weapons():
     for warrior in warriors:
-        print(f"\n[+] The warrior {warrior.name} has a {warrior.weapon.model} weapon with {warrior.weapon.power} power and {warrior.weapon.damage} damage.")
-
+        time.sleep(2)
+        print(f"\n[+] The warrior {warrior.name} has the {warrior.weapon.model} weapon with {warrior.weapon.power} power and {warrior.weapon.damage} damage.")
+        time.sleep(2)
 warriors_weapons()
