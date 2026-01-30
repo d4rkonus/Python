@@ -38,10 +38,13 @@ warriors = [lancelot, surtr, bercox, navinni, nexus]
 
 def warriors_weapons():
     for warrior in warriors:
+        if count == max_counts:
+            break
         time.sleep(1)
         print(f"\n[+] The warrior {warrior.name} has the {warrior.weapon.model} weapon with {warrior.weapon.power} power and {warrior.weapon.damage} damage.")
         count += 1
         time.sleep(1)
+    return count
         
 
 count = 0
@@ -49,9 +52,7 @@ max_counts = 5
 
 
 try:
-    for _ in range(max_counts):
-        warriors_weapons()
-        if count == max_counts:
-            break
+    while count < max_counts:
+        count = warriors_weapons(count, max_counts)
 except KeyboardInterrupt:
     print("\n\n[!] Moving to safe zone ...")
