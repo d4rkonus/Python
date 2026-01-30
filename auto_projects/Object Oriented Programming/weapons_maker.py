@@ -48,7 +48,8 @@ while True:
     try:
         warriors_weapons()
         loop += 1
-        if loop >= max_loops:
+        
+        if loop == max_loops:
             break
     except KeyboardInterrupt:
         print("\n\n[!] Moving to safe zone ...")
