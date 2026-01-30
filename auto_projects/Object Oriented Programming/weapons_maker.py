@@ -40,15 +40,18 @@ def warriors_weapons():
     for warrior in warriors:
         time.sleep(1)
         print(f"\n[+] The warrior {warrior.name} has the {warrior.weapon.model} weapon with {warrior.weapon.power} power and {warrior.weapon.damage} damage.")
+        count += 1
         time.sleep(1)
         
 
-max_loops = 5
+count = 0
+max_counts = 5
 
 
 try:
-    for _ in range(max_loops):
+    for _ in range(max_counts):
         warriors_weapons()
-
+        if count == max_counts:
+            break
 except KeyboardInterrupt:
     print("\n\n[!] Moving to safe zone ...")
