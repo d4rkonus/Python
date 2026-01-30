@@ -37,7 +37,7 @@ warriors = [lancelot, surtr, bercox, navinni, nexus]
 
 def warriors_weapons():
     for warrior in warriors:
-        time.sleep(2)
+        time.sleep(1)
         print(f"\n[+] The warrior {warrior.name} has the {warrior.weapon.model} weapon with {warrior.weapon.power} power and {warrior.weapon.damage} damage.")
-        time.sleep(2)
+        time.sleep(1)
 warriors_weapons()
