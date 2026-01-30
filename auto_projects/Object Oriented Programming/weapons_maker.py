@@ -49,10 +49,26 @@ def warriors_weapons():
 
 count = 0
 max_counts = 5
+  
+def warriors_weapons(round_number, counter):
+    for warrior in warriors:
+            counter += 1
+            time.sleep(1)
+            print(
+                f"\n[{counter}] Round {round_number}: The warrior {warrior.name} has the "
+                f"{warrior.weapon.model} weapon with {warrior.weapon.power} power and "
+                f"{warrior.weapon.damage} damage."
+            )
+            time.sleep(1)
+    return counter
 
+
+max_loops = 5
 
 try:
-    while count < max_counts:
-        count = warriors_weapons(count, max_counts)
+    counter = 0
+    for round_number in range(1, max_loops + 1):
+        counter = warriors_weapons(round_number, counter)
+
 except KeyboardInterrupt:
     print("\n\n[!] Moving to safe zone ...")
