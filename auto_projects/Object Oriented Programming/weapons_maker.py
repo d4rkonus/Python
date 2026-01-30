@@ -35,7 +35,8 @@ nexus = Warrior("nexus", 80, hammer)
 weapons = [axe, hammer, sword, spear, globes]
 warriors = [lancelot, surtr, bercox, navinni, nexus]
 
-
+max_loops = 5
+loop = 0
 
 def warriors_weapons():
     for warrior in warriors:
@@ -46,6 +47,9 @@ def warriors_weapons():
 while True:
     try:
         warriors_weapons()
+        loop += 1
+        if loop >= max_loops:
+            break
     except KeyboardInterrupt:
         print("\n\n[!] Moving to safe zone ...")
         break
