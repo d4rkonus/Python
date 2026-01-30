@@ -35,8 +35,6 @@ nexus = Warrior("nexus", 80, hammer)
 weapons = [axe, hammer, sword, spear, globes]
 warriors = [lancelot, surtr, bercox, navinni, nexus]
 
-max_loops = 5
-loop = 0
 
 def warriors_weapons():
     for warrior in warriors:
@@ -44,13 +42,13 @@ def warriors_weapons():
         print(f"\n[+] The warrior {warrior.name} has the {warrior.weapon.model} weapon with {warrior.weapon.power} power and {warrior.weapon.damage} damage.")
         time.sleep(1)
         
-while True:
-    try:
+
+max_loops = 5
+
+
+try:
+    for _ in range(max_loops):
         warriors_weapons()
-        loop += 1
-        
-        if loop == max_loops:
-            break
-    except KeyboardInterrupt:
-        print("\n\n[!] Moving to safe zone ...")
-        break
+
+except KeyboardInterrupt:
+    print("\n\n[!] Moving to safe zone ...")
