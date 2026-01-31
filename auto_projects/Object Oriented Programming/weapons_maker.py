@@ -41,17 +41,9 @@ def warriors_weapons(round_number, counter, max_counts):
 
         counter += 1
         time.sleep(1)
-        print(
-            f"\n[{counter}] Round {round_number}: "
-            f"The warrior {warrior.name} has the "
-            f"{warrior.weapon.model} weapon with "
-            f"{warrior.weapon.power} power and "
-            f"{warrior.weapon.damage} damage."
-        )
+        print(f"\n[{counter}] The warrior {warrior.name} has the {warrior.weapon.model} weapon with {warrior.weapon.power} power and {warrior.weapon.damage} damage.")
         time.sleep(1)
-
     return counter
-
 
 MAX_ROUNDS = 5
 MAX_COUNTS = 5
