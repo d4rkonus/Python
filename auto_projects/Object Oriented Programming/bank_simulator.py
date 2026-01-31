@@ -33,3 +33,20 @@ class BankAccount:
             except ValueError:
                 print("Invalid input. Enter a numeric value.")
                 
+name = input("Enter account name: ")
+number = input("Enter account number: ")
+
+account_info = BankAccount(name, number)
+
+while True:
+    try:
+        print("\n1) Deposit")
+        print("2) Withdraw")
+        print("3) Balance")
+        print("4) Exit")
+
+        option = input("Choose an option: ").strip()
+
+        if option == '1':
+            amount = account_info.give_me_money("Enter amount to deposit: ")
+            print(account_info.deposit_money(amount))
