@@ -57,7 +57,7 @@ def main():
             elif option == "3":
                 print(f"\n[=] Current balance: {account.balance}€.")
 
-                
+
             elif option == "4": 
                 print("\nGoodbye!")
                 break
@@ -66,6 +66,7 @@ def main():
 
         except KeyboardInterrupt:
             print(f"\n Moving to safe zone...")
+            break
 
 if __name__ == "__main__":
     main()
