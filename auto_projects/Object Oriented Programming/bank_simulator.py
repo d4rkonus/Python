@@ -30,43 +30,49 @@ def get_positive_float(prompt):
             return value
         except ValueError:
             print("[!] Invalid number. Try again.")
+        except KeyboardInterrupt:
+            print("\n[!] Operation cancelled.")
+            raise
 
 
 def main():
-    print("=== Bank Simulator ===")
-    name = input("Account name: ")
-    number = input("Account number: ")
-    account = BankAccount(name, number)
+    try:
+        print("=== Bank Simulator ===")
+        name = input("Account name: ")
+        number = input("Account number: ")
+        account = BankAccount(name, number)
 
-    
-    while True:
-        try:
-            print("\n1) Deposit\n2) Withdraw\n3) Balance\n4) Exit")
-            option = input("Choose an option: ").strip()
+        while True:
+            try:
+                print("\n1) Deposit\n2) Withdraw\n3) Balance\n4) Exit")
+                option = input("Choose an option: ").strip()
 
-            if option == "1":
-                amount = get_positive_float("Amount to deposit: ")
-                account.deposit(amount)
+                if option == "1":
+                    amount = get_positive_float("Amount to deposit: ")
+                    account.deposit(amount)
 
-            elif option == "2":
-                amount = get_positive_float("Amount to withdraw: ")
-                warning = account.withdraw(amount)
-                if warning:
-                    print(warning)
+                elif option == "2":
+                    amount = get_positive_float("Amount to withdraw: ")
+                    warning = account.withdraw(amount)
+                    if warning:
+                        print(warning)
 
-            elif option == "3":
-                print(f"\n[=] Current balance: {account.balance}€.")
+                elif option == "3":
+                    print(f"\n[=] Current balance: {account.balance}€.")
 
 
-            elif option == "4": 
-                print("\nGoodbye!")
+                elif option == "4":
+                    print("\nGoodbye!")
+                    break
+                else:
+                    print("[!] Invalid option. Try again.")
+
+            except KeyboardInterrupt:
+                print("\n Moving to safe zone...")
                 break
-            else:
-                print("[!] Invalid option. Try again.")
-
-        except KeyboardInterrupt:
-            print(f"\n Moving to safe zone...")
-            break
+    except KeyboardInterrupt:
+        print("\n Moving to safe zone...")
+        return
 
 if __name__ == "__main__":
     main()
