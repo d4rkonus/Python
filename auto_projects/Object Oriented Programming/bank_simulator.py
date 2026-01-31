@@ -47,14 +47,18 @@ def main():
             if option == "1":
                 amount = get_positive_float("Amount to deposit: ")
                 account.deposit(amount)
+
             elif option == "2":
                 amount = get_positive_float("Amount to withdraw: ")
                 warning = account.withdraw(amount)
-            if warning:
+                if warning:
                     print(warning)
+
             elif option == "3":
                 print(f"\n[=] Current balance: {account.balance}€.")
-            elif option == "4":
+
+                
+            elif option == "4": 
                 print("\nGoodbye!")
                 break
             else:
