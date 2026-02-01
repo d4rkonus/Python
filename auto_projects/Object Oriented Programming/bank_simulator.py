@@ -1,12 +1,13 @@
 #!/usr/bin/python3
         
+import time
+
 class BankAccount:
     def __init__(self, account_name, account_number, money=0):
         self.account_name = account_name
         self.account_number = account_number
         self.money = money
 
-    
     def deposit_money(self, money):
         self.money += money
         return(f"\nNew money deposited: {money}€")
@@ -48,7 +49,8 @@ while True:
         option = input("Choose an option: ").strip()
 
         if option == '1':
-            amount = account_info.give_me_money("Enter amount to deposit: ")
+            time.sleep(1)
+            amount = account_info.give_me_money("\nEnter amount to deposit: ")
             print(account_info.deposit_money(amount))
 
         elif option == '2':
@@ -58,7 +60,7 @@ while True:
         elif option == '3':
             print(f"\nAccount Name: {account_info.account_name}")
             print(f"Account Number: {account_info.account_number}")
-            print(f"Total Money: {account_info.money}€")
+            print(f"\nTotal Money: {account_info.money}€")
 
         elif option == '4':
             print("Exiting the program.")
