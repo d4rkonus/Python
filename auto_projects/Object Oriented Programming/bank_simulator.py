@@ -50,3 +50,21 @@ while True:
         if option == '1':
             amount = account_info.give_me_money("Enter amount to deposit: ")
             print(account_info.deposit_money(amount))
+
+        elif option == '2':
+            amount = account_info.give_me_money("Enter amount to withdraw: ")
+            print(account_info.withdraw_money(amount))
+
+        elif option == '3':
+            print(f"\nAccount Name: {account_info.account_name}")
+            print(f"Account Number: {account_info.account_number}")
+            print(f"Total Money: {account_info.money}€")
+
+        elif option == '4':
+            print("Exiting the program.")
+            break
+
+        else:
+            print("Invalid option. Please choose a valid option.")
+    except Exception as e:
+        print(f"An error occurred: {e}")
