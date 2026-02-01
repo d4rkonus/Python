@@ -20,7 +20,8 @@ while True:
     try:
         input_code = int(input("Enter locker code to open: "))
         if locker.open_locker(input_code):
-            print(f"\nLocker {locker.locker_number} is now open!")
+            print("\n[+] Access granted.")
+            print(f"\n[+] Locker {locker.locker_number} opened successfully!")
             break
         else:
             print("\nIncorrect code. Try again.")
