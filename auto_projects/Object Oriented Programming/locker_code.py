@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 
-
 class Locker:
     def __init__(self, locker_number, locker_code=4320):
         self.locker_number = locker_number
