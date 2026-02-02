@@ -60,14 +60,15 @@ def main():
 
         except KeyboardInterrupt:
             print(f"\n[!] Moving to safe zone.")
+            break
 
         except ValueError as a:
             print(f"[!] Error {a}")
             continue
 
-            additional_option = input("Add more bills? (y/n): ").lower()
-            if additional_option != "y":
-                break
+        additional_option = input("Add more bills? (y/n): ").lower()
+        if additional_option != "y":
+            break
 
     Money_factory.show_info()
 
