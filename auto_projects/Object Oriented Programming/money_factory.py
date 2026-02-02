@@ -34,7 +34,7 @@ class Money_factory:
 
         # sumalo todo
         cls.total_money += value * quantity
-        print(cls.total_money)
+        print(f"\n[+] The total value of the bills is: {cls.total_money}")
     
     @classmethod
     def show_info(cls):
