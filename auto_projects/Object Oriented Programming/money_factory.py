@@ -38,10 +38,10 @@ class Money_factory:
     
     @classmethod
     def show_info(cls):
-        print("\n\n📊 MONEY FACTORY")
+        print("\n📊 MONEY FACTORY")
 
         for value, quantity in sorted(cls.bills_created.items()):
-            print(f"{quantity} bill(s) of {value}€ → {quantity * value}€")
+            print(f"{quantity} bill(s) of {value}€ → {quantity * value}€\n")
 
 ## De aquí para arriba, actua por detras, es pura lógica
 
