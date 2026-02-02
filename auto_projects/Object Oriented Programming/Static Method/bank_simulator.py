@@ -3,70 +3,41 @@
 import time
 
 class BankAccount:
-    def __init__(self, account_name, account_number, money=0):
-        self.account_name = account_name
-        self.account_number = account_number
-        self.money = money
 
-    def deposit_money(self, money):
-        self.money += money
-        return(f"\nNew money deposited: {money}€")
-        return(f"\nTotal money in the account: {self.money}€")
+    @staticmethod
+    def deposit(balance, amount):
+        return balance + amount
     
-    def withdraw_money(self, money):
-
-        if money > self.money:
-            return("\nYou don't have enough money in your account.")
-            return("\nPut more money to start operate. Fucking poor.")
-        
-        self.money -= money
-        return(f"\nYou did a withdrawn with {money}€")
-        return(f"\nTotal money in the account: {self.money}€")
+    @staticmethod
+    def withdraw(balance, amount):
+        if amount > balance:
+            print("\n[!] Not enought money.")
+            return balance
+        return balance - amount
     
-    def give_me_money(self, message):
+    @staticmethod
+    def give_money(msg):
         while True:
             try:
-                value = float(input(message))
+                value = float(input(msg))
                 if value <= 0:
-                    print("Give me a positive amount of money.")
+                    print("[!] Please put positive number.")
                     continue
                 return value
             except ValueError:
-                print("Invalid input. Enter a numeric value.")
-                
-name = input("Enter account name: ")
-number = input("Enter account number: ")
+                print("\n[-] Invalid Number.")
 
-account_info = BankAccount(name, number)
+balance = 0
 
 while True:
-    try:
-        print("\n1) Deposit")
-        print("2) Withdraw")
-        print("3) Balance")
-        print("4) Exit")
+    print("\n1) Deposit\n2) Withdraw\n3) Balance\n4) Exit")
+    option = input("Choose: ")
 
-        option = input("Choose an option: ").strip()
-
-        if option == '1':
-            time.sleep(1)
-            amount = account_info.give_me_money("\nEnter amount to deposit: ")
-            print(account_info.deposit_money(amount))
-
-        elif option == '2':
-            amount = account_info.give_me_money("Enter amount to withdraw: ")
-            print(account_info.withdraw_money(amount))
-
-        elif option == '3':
-            print(f"\nAccount Name: {account_info.account_name}")
-            print(f"Account Number: {account_info.account_number}")
-            print(f"\nTotal Money: {account_info.money}€")
-
-        elif option == '4':
-            print("Exiting the program.")
-            break
-
-        else:
-            print("Invalid option. Please choose a valid option.")
-    except Exception as e:
-        print(f"An error occurred: {e}")
+    if option == "1":
+        balance = BankAccount.deposit(balance, BankAccount.give_money("Deposit: "))
+    elif option == "2":
+        balance = BankAccount.withdraw(balance, BankAccount.give_money("Withdraw: "))
+    elif option == "3":
+        print("Balance:", balance)
+    elif option == "4":
+        break
