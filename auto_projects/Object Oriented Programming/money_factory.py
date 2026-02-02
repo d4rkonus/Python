@@ -34,8 +34,7 @@ class Money_factory:
 
         # sumalo todo
         cls.total_money += value * quantity
-
-        return Money(quantity, value)
+        print(cls.total_money)
     
     @classmethod
     def show_info(cls):
@@ -58,6 +57,9 @@ def main():
 
             Money_factory.create_bills(value, quantity)
             print("[+] Bills created nicely :)")
+
+        except KeyboardInterrupt:
+            print(f"\n[!] Moving to safe zone.")
 
         except ValueError as a:
             print(f"[!] Error {a}")
