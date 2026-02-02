@@ -34,7 +34,7 @@ class Money_factory:
 
         # sumalo todo
         cls.total_money += value * quantity
-        print(f"\n[+] The total value of the bills is: {cls.total_money}")
+        print(f"\n[+] The total value of the bills is: {cls.total_money}€")
     
     @classmethod
     def show_info(cls):
@@ -56,7 +56,6 @@ def main():
             quantity = int(input("Give me the quantity of bills: "))
 
             Money_factory.create_bills(value, quantity)
-            print("[+] Bills created nicely :)")
 
         except KeyboardInterrupt:
             print(f"\n[!] Moving to safe zone.")
@@ -66,7 +65,7 @@ def main():
             print(f"[!] Error {a}")
             continue
 
-        additional_option = input("Add more bills? (y/n): ").lower()
+        additional_option = input("\nAdd more bills? (y/n): ").lower()
         if additional_option != "y":
             break
 
