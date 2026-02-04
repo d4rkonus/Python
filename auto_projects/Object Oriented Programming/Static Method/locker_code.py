@@ -6,9 +6,10 @@ class Locker:
         self.locker_code = locker_code
         self.is_open = False
 
-    def open_locker(self, input_code):
-        if input_code == self.locker_code:
-            self.is_open = True
+    @staticmethod
+    def open_locker(locker, input_code):
+        if input_code == locker.locker_code:
+            locker.is_open = True
             return True
         return False
         
@@ -18,7 +19,7 @@ locker = Locker(locker_number)
 while True:
     try:
         input_code = int(input("Enter locker code to open: "))
-        if locker.open_locker(input_code):
+        if Locker.open_locker(locker, input_code):
             print("\n[+] Access granted.")
             print(f"\n[+] Locker {locker.locker_number} opened successfully!")
             break

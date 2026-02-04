@@ -33,17 +33,18 @@ warriors = [
     Warrior("nexus", 80, hammer),
 ]
 
+class Arena:
+    @staticmethod
+    def warriors_weapons(round_number, counter, max_counts):
+        for warrior in warriors:
+            if counter == max_counts:
+                return counter
 
-def warriors_weapons(round_number, counter, max_counts):
-    for warrior in warriors:
-        if counter == max_counts:
-            return counter
-
-        counter += 1
-        time.sleep(1)
-        print(f"\n[{counter}] The warrior {warrior.name} has the {warrior.weapon.model} weapon with {warrior.weapon.power} power and {warrior.weapon.damage} damage.")
-        time.sleep(1)
-    return counter
+            counter += 1
+            time.sleep(1)
+            print(f"\n[{counter}] The warrior {warrior.name} has the {warrior.weapon.model} weapon with {warrior.weapon.power} power and {warrior.weapon.damage} damage.")
+            time.sleep(1)
+        return counter
 
 MAX_ROUNDS = 5
 MAX_COUNTS = 5
@@ -51,7 +52,7 @@ MAX_COUNTS = 5
 try:
     counter = 0
     for round_number in range(1, MAX_ROUNDS + 1):
-        counter = warriors_weapons(round_number, counter, MAX_COUNTS)
+        counter = Arena.warriors_weapons(round_number, counter, MAX_COUNTS)
         if counter == MAX_COUNTS:
             break
 

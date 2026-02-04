@@ -2,12 +2,12 @@
 
 class Conversor:
 
-    @classmethod
-    def c_to_f(cls, c):
+    @staticmethod
+    def c_to_f(c):
         return (c * 9/5) + 32
     
-    @classmethod
-    def f_to_c(cls, f):
+    @staticmethod
+    def f_to_c(f):
         return (f - 32) * 5/9
     
 while True:

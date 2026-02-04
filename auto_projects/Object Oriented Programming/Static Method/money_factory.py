@@ -18,29 +18,29 @@ class Money_factory:
     def types_of_value(value):
         return value in [5, 10, 20, 50, 100, 200, 500]
 
-    @classmethod
-    def create_bills(cls, value, quantity):
-        if not cls.types_of_value(value):
+    @staticmethod
+    def create_bills(value, quantity):
+        if not Money_factory.types_of_value(value):
             raise ValueError("Type of value not allowed.")
         
         if quantity <= 0:
             raise ValueError("Give me more quantity than 0.")
     
         # contar billetitos
-        if value in cls.bills_created:
-            cls.bills_created[value] += quantity
+        if value in Money_factory.bills_created:
+            Money_factory.bills_created[value] += quantity
         else:
-            cls.bills_created[value] = quantity
+            Money_factory.bills_created[value] = quantity
 
         # sumalo todo
-        cls.total_money += value * quantity
-        print(f"\n[+] The total value of the bills is: {cls.total_money}€")
+        Money_factory.total_money += value * quantity
+        print(f"\n[+] The total value of the bills is: {Money_factory.total_money}€")
     
-    @classmethod
-    def show_info(cls):
+    @staticmethod
+    def show_info():
         print("\n📊 MONEY FACTORY")
 
-        for value, quantity in sorted(cls.bills_created.items()):
+        for value, quantity in sorted(Money_factory.bills_created.items()):
             print(f"{quantity} bill(s) of {value}€ → {quantity * value}€\n")
 
 ## De aquí para arriba, actua por detras, es pura lógica
