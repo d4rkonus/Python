@@ -19,7 +19,7 @@ def check_network(cidr):
         if network.prefixlen < 31:
             host = list(network.hosts())
             print(f"\n[+] First host available --> {host[0]}")
-            print(f"n[+] Last host available --> {host[-1]}\n")
+            print(f"\n[+] Last host available --> {host[-1]}\n")
 
     except ValueError as e:
         print("Error:", e)
